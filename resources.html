@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ресурси | 3D</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="logo">3D MODELLING</div>
+
+<nav>
+<a href="index.html">Головна</a>
+<a href="theory.html">Теорія</a>
+<a href="types.html">Види</a>
+<a href="process.html">Процес</a>
+<a href="gallery.html">Галерея</a>
+<a href="video.html">Відео</a>
+<a href="tips.html">Поради</a>
+<a href="tools.html">Програми</a>
+<a href="resources.html">Ресурси</a>
+<a href="contact.html">Контакти</a>
+</nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>📚 Центр ресурсів 3D</h1>
+  <p>Все, що потрібно для росту: навчання, ассети та ком’юніті</p>
+
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="🔍 Пошук ресурсів..."
+    onkeyup="searchResources()"
+  >
+</section>
+
+<!-- CATEGORY: LEARNING -->
+<section class="resource-section">
+  <h2>🎓 Навчання</h2>
+
+  <div class="resource-grid">
+
+    <a href="https://www.youtube.com/@blenderguru" target="_blank" class="resource-card">
+      <h3>Blender Guru</h3>
+      <p>YouTube канал + Donut Tutorial</p>
+    </a>
+
+    <a href="https://cgcookie.com" target="_blank" class="resource-card">
+      <h3>CG Cookie</h3>
+      <p>Курси по Blender</p>
+    </a>
+
+    <a href="https://flippednormals.com" target="_blank" class="resource-card">
+      <h3>FlippedNormals</h3>
+      <p>Професійні курси</p>
+    </a>
+
+    <a href="https://www.pluralsight.com" target="_blank" class="resource-card">
+      <h3>Pluralsight</h3>
+      <p>Maya, ZBrush навчання</p>
+    </a>
+
+  </div>
+</section>
+
+<!-- CATEGORY: ASSETS -->
+<section class="resource-section">
+  <h2>📦 Ассети</h2>
+
+  <div class="resource-grid">
+
+    <div class="resource-card">
+      <h3>Poly Haven</h3>
+      <p>HDRI та текстури</p>
+    </div>
+
+    <div class="resource-card">
+      <h3>Sketchfab</h3>
+      <p>3D моделі онлайн</p>
+    </div>
+
+    <div class="resource-card">
+      <h3>Quixel Megascans</h3>
+      <p>Фотореалістичні ассети</p>
+    </div>
+
+    <div class="resource-card">
+      <h3>CGTrader</h3>
+      <p>Безкоштовні моделі</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CATEGORY: COMMUNITY -->
+<section class="resource-section">
+  <h2>🌍 Спільноти</h2>
+
+  <div class="resource-grid">
+
+    <div class="resource-card">
+      <h3>Blender Artists</h3>
+      <p>Форум Blender</p>
+    </div>
+
+    <div class="resource-card">
+      <h3>Reddit r/blender</h3>
+      <p>Активна спільнота</p>
+    </div>
+
+    <div class="resource-card">
+      <h3>ArtStation</h3>
+      <p>Портфоліо і натхнення</p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 3D Моделювання</p>
+</footer>
+
+<!-- JS -->
+<script>
+function searchResources() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let cards = document.querySelectorAll(".resource-card");
+
+  cards.forEach(card => {
+    let text = card.innerText.toLowerCase();
+    card.style.display = text.includes(input) ? "block" : "none";
+  });
+}
+</script>
+
+</body>
+</html>

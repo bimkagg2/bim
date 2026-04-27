@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Поради 3D</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="logo">3D MODELLING</div>
+
+<nav>
+<a href="index.html">Головна</a>
+<a href="theory.html">Теорія</a>
+<a href="types.html">Види</a>
+<a href="process.html">Процес</a>
+<a href="gallery.html">Галерея</a>
+<a href="video.html">Відео</a>
+<a href="tips.html">Поради</a>
+<a href="tools.html">Програми</a>
+<a href="resources.html">Ресурси</a>
+<a href="contact.html">Контакти</a>
+</nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>🎯 10 порад для старту в 3D</h1>
+  <p>Це не просто список — це твій стартовий чекліст. Натискай на картки і вивчай.</p>
+
+  <div class="progress-box">
+    <span id="progressText">Прогрес: 0 / 10</span>
+    <div class="progress-bar">
+      <div id="progressFill"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tips-grid">
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>01</span>
+    <h3>Почни з бази</h3>
+    <div class="tip-content">
+      <p>Не стрибай одразу в складні сцени. Куби, сфери і циліндри — це твій фундамент.</p>
+    </div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>02</span>
+    <h3>Шорткати = швидкість</h3>
+    <div class="tip-content">
+      <p>Hotkeys — це суперсила. Вони реально прискорюють роботу в кілька разів.</p>
+    </div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>03</span>
+    <h3>Правильна топологія</h3>
+    <div class="tip-content">
+      <p>Квади — це стандарт. Вони краще поводяться в анімації та деформації.</p>
+    </div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>04</span>
+    <h3>Завжди референси</h3>
+    <div class="tip-content">
+      <p>Не вигадуй все з голови. Референси роблять твою роботу реальною.</p>
+    </div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>05</span>
+    <h3>Контроль масштабу</h3>
+    <div class="tip-content">
+      <p>Правильний scale важливий для світла, фізики і рендеру.</p>
+    </div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>06</span>
+    <h3>Роби паузи</h3>
+    <div class="tip-content">
+      <p>Очі звикають. Перерва допомагає побачити помилки.</p>
+    </div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>07</span>
+    <h3>Зберігай версії</h3>
+    <div class="tip-content">
+      <p>v01, v02, v03 — це твій сейв. Інакше буде біль 😄</p>
+    </div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>08</span>
+    <h3>Світло — це все</h3>
+    <div class="tip-content">
+      <p>Освітлення вирішує більшу частину якості сцени.</p>
+    </div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>09</span>
+    <h3>Вчися у інших</h3>
+    <div class="tip-content">
+      <p>Дивись роботи інших і отримуй фідбек.</p>
+    </div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>10</span>
+    <h3>Якість > кількість</h3>
+    <div class="tip-content">
+      <p>Одна сильна робота важливіша за 10 слабких.</p>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 3D Моделювання</p>
+</footer>
+
+<!-- JS -->
+<script>
+let opened = 0;
+
+function openTip(card) {
+  if (!card.classList.contains('active')) {
+    opened++;
+  }
+
+  document.querySelectorAll('.tip-card').forEach(el => {
+    if (el !== card) el.classList.remove('active');
+  });
+
+  card.classList.toggle('active');
+
+  updateProgress();
+}
+
+function updateProgress() {
+  const total = 10;
+  const percent = (opened / total) * 100;
+
+  document.getElementById("progressText").innerText = `Прогрес: ${opened} / ${total}`;
+  document.getElementById("progressFill").style.width = percent + "%";
+}
+</script>
+
+</body>
+</html>

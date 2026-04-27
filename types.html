@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Види 3D</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">3D MODELLING</div>
+
+  <nav>
+    <a href="index.html">Головна</a>
+    <a href="theory.html">Теорія</a>
+    <a href="types.html">Види</a>
+    <a href="process.html">Процес</a>
+    <a href="gallery.html">Галерея</a>
+    <a href="video.html">Відео</a>
+    <a href="tips.html">Поради</a>
+    <a href="tools.html">Програми</a>
+    <a href="resources.html">Ресурси</a>
+    <a href="contact.html">Контакти</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>📦 Види 3D-моделювання</h1>
+  <p>Оберіть категорію та досліджуйте методи створення моделей</p>
+</section>
+
+<!-- FILTER BUTTONS -->
+<div style="text-align:center;margin-bottom:20px;">
+  <button onclick="show('all')" class="btn-small btn-outline">Всі</button>
+  <button onclick="show('geo')" class="btn-small btn-outline">Геометрія</button>
+  <button onclick="show('tech')" class="btn-small btn-outline">Технічні</button>
+  <button onclick="show('scan')" class="btn-small btn-outline">Сканування</button>
+</div>
+
+<!-- GRID -->
+<section class="cards" id="grid">
+
+  <div class="info-card" data-type="geo">
+    <h3>Полігональне</h3>
+    <p>Основний метод у іграх та анімації.</p>
+  </div>
+
+  <div class="info-card" data-type="geo">
+    <h3>NURBS</h3>
+    <p>Гладкі математичні поверхні.</p>
+  </div>
+
+  <div class="info-card" data-type="geo">
+    <h3>Sculpting</h3>
+    <p>Цифрова ліпка як у глині.</p>
+  </div>
+
+  <div class="info-card" data-type="tech">
+    <h3>CAD</h3>
+    <p>Точна інженерна розробка.</p>
+  </div>
+
+  <div class="info-card" data-type="tech">
+    <h3>Procedural</h3>
+    <p>Генерація через алгоритми.</p>
+  </div>
+
+  <div class="info-card" data-type="scan">
+    <h3>Photogrammetry</h3>
+    <p>Створення моделей з фото.</p>
+  </div>
+
+  <div class="info-card" data-type="tech">
+    <h3>Wireframe</h3>
+    <p>Каркасне представлення моделі.</p>
+  </div>
+
+  <div class="info-card" data-type="geo">
+    <h3>B-rep</h3>
+    <p>Опис поверхонь і меж.</p>
+  </div>
+
+</section>
+
+<footer>
+  <p>© 2026 3D Моделювання</p>
+</footer>
+
+<script>
+function show(type) {
+  const cards = document.querySelectorAll(".info-card");
+
+  cards.forEach(card => {
+    if (type === "all") {
+      card.style.display = "block";
+    } else {
+      card.style.display = card.dataset.type === type ? "block" : "none";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
