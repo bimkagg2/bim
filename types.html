@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Види 3D</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= BASE ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#050816;
+  color:white;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+  radial-gradient(circle at top left, rgba(56,189,248,.18), transparent 30%),
+  radial-gradient(circle at bottom right, rgba(168,85,247,.15), transparent 30%);
+  z-index:-1;
+}
+
+/* ================= HEADER (как в теории) ================= */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  background:rgba(5,8,22,.8);
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:18px 24px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#38bdf8;
+}
+
+/* DESKTOP NAV */
+.nav{
+  display:flex;
+  gap:20px;
+}
+
+.nav a{
+  color:#94a3b8;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.nav a:hover{
+  color:white;
+}
+
+/* BURGER */
+.burger{
+  display:none;
+  font-size:30px;
+  cursor:pointer;
+}
+
+/* MOBILE MENU (как в теории) */
+.mobile-menu{
+  position:absolute;
+  top:100%;
+  left:0;
+
+  width:100%;
+
+  background:#0b1120;
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+
+  display:flex;
+  flex-direction:column;
+
+  max-height:0;
+  overflow:hidden;
+
+  transition:.4s ease;
+}
+
+.mobile-menu.active{
+  max-height:600px;
+}
+
+.mobile-menu a{
+  padding:16px 24px;
+  color:#cbd5e1;
+  text-decoration:none;
+
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+.mobile-menu a:hover{
+  background:rgba(56,189,248,.1);
+  color:white;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  text-align:center;
+  padding:90px 20px 40px;
+}
+
+.hero h1{
+  font-size:52px;
+  font-weight:800;
+
+  background:linear-gradient(90deg,#38bdf8,#818cf8,#a855f7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  color:#94a3b8;
+  margin-top:10px;
+}
+
+/* ================= FILTERS ================= */
+
+.filters{
+  text-align:center;
+  margin:20px 0 30px;
+}
+
+.btn{
+  padding:10px 16px;
+  margin:5px;
+
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.15);
+
+  background:transparent;
+  color:#cbd5e1;
+
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:rgba(56,189,248,.1);
+  color:white;
+}
+
+.btn.active{
+  background:rgba(56,189,248,.2);
+  border-color:#38bdf8;
+  color:white;
+}
+
+/* ================= GRID ================= */
+
+.cards{
+  max-width:1200px;
+  margin:auto;
+  padding:0 24px 60px;
+
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+
+  border-radius:24px;
+  padding:24px;
+
+  backdrop-filter:blur(12px);
+
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(56,189,248,.3);
+}
+
+.card h3{
+  color:#38bdf8;
+  margin-bottom:8px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#64748b;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .nav{
+    display:none;
+  }
+
+  .burger{
+    display:block;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+
+  <div class="container">
+
+    <div class="logo"><span>3D</span> MODELLING</div>
+
+    <nav class="nav">
+      <a href="index.html">Головна</a>
+      <a href="theory.html">Теорія</a>
+      <a href="types.html">Види</a>
+      <a href="process.html">Процес</a>
+      <a href="gallery.html">Галерея</a>
+      <a href="video.html">Відео</a>
+      <a href="tips.html">Поради</a>
+      <a href="tools.html">Програми</a>
+      <a href="resources.html">Ресурси</a>
+      <a href="contact.html">Контакти</a>
+    </nav>
+
+    <div class="burger" onclick="toggleMenu()">☰</div>
+
+  </div>
+
+  <!-- MOBILE MENU (верхняя шторка как в теории) -->
+  <div class="mobile-menu" id="mobileMenu">
+
+    <a href="index.html">Головна</a>
+    <a href="theory.html">Теорія</a>
+    <a href="types.html">Види</a>
+    <a href="process.html">Процес</a>
+    <a href="gallery.html">Галерея</a>
+    <a href="video.html">Відео</a>
+    <a href="tips.html">Поради</a>
+    <a href="tools.html">Програми</a>
+    <a href="resources.html">Ресурси</a>
+    <a href="contact.html">Контакти</a>
+
+  </div>
+
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Види 3D</h1>
+  <p>Різні методи створення 3D-моделей</p>
+</section>
+
+<!-- FILTERS -->
+<div class="filters">
+
+  <button class="btn active" onclick="filter('all', this)">Всі</button>
+  <button class="btn" onclick="filter('geo', this)">Геометрія</button>
+  <button class="btn" onclick="filter('tech', this)">Технічні</button>
+  <button class="btn" onclick="filter('scan', this)">Сканування</button>
+
+</div>
+
+<!-- CARDS -->
+<section class="cards">
+
+  <div class="card" data-type="geo">
+    <h3>Полігональне</h3>
+    <p>Основний метод у іграх.</p>
+  </div>
+
+  <div class="card" data-type="geo">
+    <h3>NURBS</h3>
+    <p>Гладкі математичні поверхні.</p>
+  </div>
+
+  <div class="card" data-type="geo">
+    <h3>Sculpting</h3>
+    <p>Цифрова ліпка як глина.</p>
+  </div>
+
+  <div class="card" data-type="tech">
+    <h3>CAD</h3>
+    <p>Інженерне моделювання.</p>
+  </div>
+
+  <div class="card" data-type="tech">
+    <h3>Procedural</h3>
+    <p>Генерація через алгоритми.</p>
+  </div>
+
+  <div class="card" data-type="scan">
+    <h3>Photogrammetry</h3>
+    <p>Моделі з фото.</p>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 3D Моделювання
+</footer>
+
+<script>
+
+/* MOBILE MENU */
+function toggleMenu(){
+  document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+/* FILTER */
+let currentBtn = document.querySelector(".btn.active");
+
+function filter(type, btn){
+
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    card.style.display = (type === "all" || card.dataset.type === type)
+      ? "block"
+      : "none";
+  });
+
+  if(btn){
+    if(currentBtn) currentBtn.classList.remove("active");
+    btn.classList.add("active");
+    currentBtn = btn;
+  }
+
+}
+
+</script>
+
+</body>
+</html>

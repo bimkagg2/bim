@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Відео | 3D Моделювання</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= BASE ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#050816;
+  color:white;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+  radial-gradient(circle at top left, rgba(56,189,248,.18), transparent 30%),
+  radial-gradient(circle at bottom right, rgba(168,85,247,.15), transparent 30%);
+  z-index:-1;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  background:rgba(5,8,22,.8);
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:18px 24px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#38bdf8;
+}
+
+.nav{
+  display:flex;
+  gap:20px;
+}
+
+.nav a{
+  color:#94a3b8;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.nav a:hover{
+  color:white;
+}
+
+/* BURGER */
+.burger{
+  display:none;
+  font-size:30px;
+  cursor:pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu{
+  position:absolute;
+  top:100%;
+  left:0;
+
+  width:100%;
+
+  background:#0b1120;
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+
+  display:flex;
+  flex-direction:column;
+
+  max-height:0;
+  overflow:hidden;
+
+  transition:.4s ease;
+}
+
+.mobile-menu.active{
+  max-height:600px;
+}
+
+.mobile-menu a{
+  padding:16px 24px;
+  color:#cbd5e1;
+  text-decoration:none;
+
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+.mobile-menu a:hover{
+  background:rgba(56,189,248,.1);
+  color:white;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  text-align:center;
+  padding:90px 20px 40px;
+}
+
+.hero h2{
+  font-size:52px;
+  font-weight:800;
+
+  background:linear-gradient(90deg,#38bdf8,#818cf8,#a855f7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  color:#94a3b8;
+  margin-top:10px;
+}
+
+/* ================= VIDEO GRID ================= */
+
+.gallery-grid{
+  max-width:1200px;
+  margin:auto;
+  padding:0 24px 60px;
+
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.video-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+
+  border-radius:20px;
+  overflow:hidden;
+
+  transition:.3s;
+}
+
+.video-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(56,189,248,.3);
+}
+
+/* VIDEO FRAME */
+.video-frame{
+  position:relative;
+  padding-top:56.25%;
+}
+
+.video-frame iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+
+/* TEXT */
+.video-card h3{
+  padding:12px 14px 0;
+  font-size:16px;
+}
+
+.video-card p{
+  padding:5px 14px 16px;
+  color:#94a3b8;
+  font-size:14px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#64748b;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h2{
+    font-size:34px;
+  }
+}
+
+@media(max-width:768px){
+
+  .nav{
+    display:none;
+  }
+
+  .burger{
+    display:block;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+
+  <div class="container">
+
+    <div class="logo"><span>3D</span> MODELLING</div>
+
+    <nav class="nav">
+      <a href="index.html">Головна</a>
+      <a href="theory.html">Теорія</a>
+      <a href="types.html">Види</a>
+      <a href="process.html">Процес</a>
+      <a href="gallery.html">Галерея</a>
+      <a href="video.html">Відео</a>
+      <a href="tips.html">Поради</a>
+      <a href="tools.html">Програми</a>
+      <a href="resources.html">Ресурси</a>
+      <a href="contact.html">Контакти</a>
+    </nav>
+
+    <div class="burger" onclick="toggleMenu()">☰</div>
+
+  </div>
+
+  <!-- MOBILE MENU (верхняя шторка как в теории) -->
+  <div class="mobile-menu" id="mobileMenu">
+
+    <a href="index.html">Головна</a>
+    <a href="theory.html">Теорія</a>
+    <a href="types.html">Види</a>
+    <a href="process.html">Процес</a>
+    <a href="gallery.html">Галерея</a>
+    <a href="video.html">Відео</a>
+    <a href="tips.html">Поради</a>
+    <a href="tools.html">Програми</a>
+    <a href="resources.html">Ресурси</a>
+    <a href="contact.html">Контакти</a>
+
+  </div>
+
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+  <h2>Відеоуроки</h2>
+  <p>Кращі туторіали для вивчення 3D</p>
+
+</section>
+
+<!-- GRID -->
+<section class="gallery-grid">
+
+  <a class="video-card" href="https://www.youtube.com/watch?v=TPrnSACiTJ4" target="_blank">
+    <div class="video-thumb">
+      <img src="https://img.youtube.com/vi/TPrnSACiTJ4/hqdefault.jpg">
+      <div class="play">▶</div>
+    </div>
+    <h3>Blender Donut Beginner</h3>
+    <p>Найвідоміший урок для старту в 3D</p>
+  </a>
+
+  <a class="video-card" href="https://www.youtube.com/watch?v=B0J27sf9N1Y" target="_blank">
+    <div class="video-thumb">
+      <img src="https://img.youtube.com/vi/B0J27sf9N1Y/hqdefault.jpg">
+      <div class="play">▶</div>
+    </div>
+    <h3>Blender Basics</h3>
+    <p>Основи інтерфейсу та навігації</p>
+  </a>
+
+  <a class="video-card" href="https://www.youtube.com/watch?v=7fBRXBDsjTY" target="_blank">
+    <div class="video-thumb">
+      <img src="https://img.youtube.com/vi/7fBRXBDsjTY/hqdefault.jpg">
+      <div class="play">▶</div>
+    </div>
+    <h3>3D Modeling Basics</h3>
+    <p>Як будувати перші моделі</p>
+  </a>
+
+  <a class="video-card" href="https://www.youtube.com/watch?v=b2BOpyWznuE" target="_blank">
+    <div class="video-thumb">
+      <img src="https://img.youtube.com/vi/b2BOpyWznuE/hqdefault.jpg">
+      <div class="play">▶</div>
+    </div>
+    <h3>Lighting in Blender</h3>
+    <p>Деталізація та постановка сцени</p>
+  </a>
+
+  <a class="video-card" href="https://www.youtube.com/watch?v=huqd0hA4cC4" target="_blank">
+    <div class="video-thumb">
+      <img src="https://img.youtube.com/vi/huqd0hA4cC4/hqdefault.jpg">
+      <div class="play">▶</div>
+    </div>
+    <h3>Blender Sculpting Basics</h3>
+    <p>Шейдинг та нодова система</p>
+  </a>
+
+  <a class="video-card" href="https://www.youtube.com/watch?v=uL5Rw8lVlfY" target="_blank">
+    <div class="video-thumb">
+      <img src="https://img.youtube.com/vi/uL5Rw8lVlfY/hqdefault.jpg">
+      <div class="play">▶</div>
+    </div>
+    <h3>Realistic Lighting Tutorial</h3>
+    <p>Компостінг та постобробка</p>
+  </a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 3D Моделювання
+</footer>
+
+<script>
+
+function toggleMenu(){
+  document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+</script>
+
+</body>
+</html>

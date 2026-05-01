@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Поради 3D</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= BASE ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#050816;
+  color:white;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+  radial-gradient(circle at top left, rgba(56,189,248,.18), transparent 30%),
+  radial-gradient(circle at bottom right, rgba(168,85,247,.15), transparent 30%);
+  z-index:-1;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  background:rgba(5,8,22,.8);
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:18px 24px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#38bdf8;
+}
+
+.nav{
+  display:flex;
+  gap:20px;
+}
+
+.nav a{
+  color:#94a3b8;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.nav a:hover{
+  color:white;
+}
+
+/* BURGER */
+.burger{
+  display:none;
+  font-size:30px;
+  cursor:pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu{
+  position:absolute;
+  top:100%;
+  left:0;
+
+  width:100%;
+
+  background:#0b1120;
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+
+  display:flex;
+  flex-direction:column;
+
+  max-height:0;
+  overflow:hidden;
+
+  transition:.4s ease;
+}
+
+.mobile-menu.active{
+  max-height:600px;
+}
+
+.mobile-menu a{
+  padding:16px 24px;
+  color:#cbd5e1;
+  text-decoration:none;
+
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+.mobile-menu a:hover{
+  background:rgba(56,189,248,.1);
+  color:white;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  text-align:center;
+  padding:90px 20px 40px;
+}
+
+.hero h1{
+  font-size:52px;
+  font-weight:800;
+
+  background:linear-gradient(90deg,#38bdf8,#818cf8,#a855f7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  color:#94a3b8;
+  margin-top:10px;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-box{
+  margin-top:25px;
+}
+
+.progress-bar{
+  width:100%;
+  max-width:500px;
+  height:8px;
+
+  margin:10px auto;
+
+  background:#111827;
+  border-radius:999px;
+  overflow:hidden;
+}
+
+#progressFill{
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg,#38bdf8,#818cf8);
+  transition:.4s;
+}
+
+/* ================= GRID ================= */
+
+.tips-grid{
+  max-width:1100px;
+  margin:auto;
+  padding:0 24px 60px;
+
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+/* CARD */
+.tip-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+
+  border-radius:20px;
+  padding:20px;
+
+  cursor:pointer;
+
+  transition:.3s;
+  position:relative;
+}
+
+.tip-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(56,189,248,.3);
+}
+
+.tip-card span{
+  color:#38bdf8;
+  font-weight:700;
+}
+
+.tip-card h3{
+  margin-top:8px;
+}
+
+/* CONTENT */
+.tip-content{
+  max-height:0;
+  overflow:hidden;
+
+  margin-top:10px;
+
+  color:#94a3b8;
+
+  transition:.4s ease;
+}
+
+/* ACTIVE */
+.tip-card.active{
+  background:rgba(56,189,248,.05);
+  border-color:rgba(56,189,248,.4);
+}
+
+.tip-card.active .tip-content{
+  max-height:200px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#64748b;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .nav{
+    display:none;
+  }
+
+  .burger{
+    display:block;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .tips-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+
+  <div class="container">
+
+    <div class="logo"><span>3D</span> MODELLING</div>
+
+    <nav class="nav">
+      <a href="index.html">Головна</a>
+      <a href="theory.html">Теорія</a>
+      <a href="types.html">Види</a>
+      <a href="process.html">Процес</a>
+      <a href="gallery.html">Галерея</a>
+      <a href="video.html">Відео</a>
+      <a href="tips.html">Поради</a>
+      <a href="tools.html">Програми</a>
+      <a href="resources.html">Ресурси</a>
+      <a href="contact.html">Контакти</a>
+    </nav>
+
+    <div class="burger" onclick="toggleMenu()">☰</div>
+
+  </div>
+
+  <!-- MOBILE MENU (верхняя шторка как в теории) -->
+  <div class="mobile-menu" id="mobileMenu">
+
+    <a href="index.html">Головна</a>
+    <a href="theory.html">Теорія</a>
+    <a href="types.html">Види</a>
+    <a href="process.html">Процес</a>
+    <a href="gallery.html">Галерея</a>
+    <a href="video.html">Відео</a>
+    <a href="tips.html">Поради</a>
+    <a href="tools.html">Програми</a>
+    <a href="resources.html">Ресурси</a>
+    <a href="contact.html">Контакти</a>
+
+  </div>
+
+</header>
+<!-- HERO -->
+<section class="hero">
+
+  <h1>Поради для старту</h1>
+  <p>Натискай на картки, щоб відкривати пояснення</p>
+
+  <div class="progress-box">
+    <span id="progressText">Прогрес: 0 / 10</span>
+    <div class="progress-bar">
+      <div id="progressFill"></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- GRID -->
+<section class="tips-grid">
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>01</span>
+    <h3>Почни з бази</h3>
+    <div class="tip-content">Куби, сфери і прості форми — це фундамент.</div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>02</span>
+    <h3>Шорткати</h3>
+    <div class="tip-content">Гарячі клавіші прискорюють роботу в 3–5 разів.</div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>03</span>
+    <h3>Топологія</h3>
+    <div class="tip-content">Квади = стабільна анімація і правильна деформація.</div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>04</span>
+    <h3>Референси</h3>
+    <div class="tip-content">Не вигадуй — дивись реальні приклади.</div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>05</span>
+    <h3>Світло</h3>
+    <div class="tip-content">Освітлення визначає 70% якості рендера.</div>
+  </div>
+
+  <!-- NEW -->
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>06</span>
+    <h3>Не поспішай</h3>
+    <div class="tip-content">Швидкість приходить з досвідом, не навпаки.</div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>07</span>
+    <h3>Зберігай версії</h3>
+    <div class="tip-content">v01, v02, v03 — це рятує від втрати роботи.</div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>08</span>
+    <h3>Вчи Blender щодня</h3>
+    <div class="tip-content">Навіть 30 хвилин на день дають великий прогрес.</div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>09</span>
+    <h3>Аналізуй роботи інших</h3>
+    <div class="tip-content">Дивись як зроблено — і повторюй техніки.</div>
+  </div>
+
+  <div class="tip-card" onclick="openTip(this)">
+    <span>10</span>
+    <h3>Якість важливіша</h3>
+    <div class="tip-content">Одна сильна робота краща за 10 слабких.</div>
+  </div>
+
+</section>
+<!-- FOOTER -->
+<footer>
+  © 2026 3D Моделювання
+</footer>
+
+<script>
+
+let opened = 0;
+
+function openTip(card){
+
+  if(!card.classList.contains("active")){
+    opened++;
+  }
+
+  document.querySelectorAll(".tip-card").forEach(c=>{
+    if(c !== card) c.classList.remove("active");
+  });
+
+  card.classList.toggle("active");
+
+  document.getElementById("progressText").innerText =
+  `Прогрес: ${opened} / 10`;
+
+  document.getElementById("progressFill").style.width =
+  (opened * 10) + "%";
+}
+
+/* MENU */
+function toggleMenu(){
+  document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+</script>
+
+</body>
+</html>
