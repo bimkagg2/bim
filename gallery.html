@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Галерея 3D</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container">
+
+    <div class="logo">
+      <span>3D</span> MODELLING
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Головна</a>
+      <a href="theory.html">Теорія</a>
+      <a href="types.html">Види</a>
+      <a href="process.html">Процес</a>
+      <a href="gallery.html">Галерея</a>
+      <a href="video.html">Відео</a>
+      <a href="tips.html">Поради</a>
+      <a href="tools.html">Програми</a>
+      <a href="resources.html">Ресурси</a>
+      <a href="contact.html">Контакти</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+<section class="gallery-header">
+  <h2>🖼 3D Art Gallery</h2>
+  <p>Роботи, рендери та сцени з різних стилів</p>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="">
+</div>
+
+<section class="gallery-modern">
+
+  <div class="grid">
+
+    <div class="item large">
+      <img src="https://images.unsplash.com/photo-1650357935585-66f914bcc4b9" onclick="openLightbox(this)">
+      <div class="info">Abstract Render</div>
+    </div>
+
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1645571498966-869875a6520c" onclick="openLightbox(this)">
+      <div class="info">Sculpting Study</div>
+    </div>
+
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1617791160536-598cf32026fb" onclick="openLightbox(this)">
+      <div class="info">Liquid Metal</div>
+    </div>
+
+    <div class="item tall">
+      <img src="https://images.unsplash.com/photo-1604079628040-94301bb21b91" onclick="openLightbox(this)">
+      <div class="info">3D Environment</div>
+    </div>
+
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead" onclick="openLightbox(this)">
+      <div class="info">Geometry Study</div>
+    </div>
+
+    <div class="item wide">
+      <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f" onclick="openLightbox(this)">
+      <div class="info">Blender Scene</div>
+    </div>
+
+    <!-- ➕ НОВЕ ФОТО -->
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80" onclick="openLightbox(this)">
+      <div class="info">Blender Sci-Fi Render</div>
+    </div>
+
+  </div>
+
+</section>
+</main>
+
+<footer>
+  <p>© 2026 3D Моделювання</p>
+</footer>
+
+<script>
+function openLightbox(img) {
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = img.src;
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>

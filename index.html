@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Моделювання</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container">
+
+    <div class="logo">
+      <span>3D</span> MODELLING
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Головна</a>
+      <a href="theory.html">Теорія</a>
+      <a href="types.html">Види</a>
+      <a href="process.html">Процес</a>
+      <a href="gallery.html">Галерея</a>
+      <a href="video.html">Відео</a>
+      <a href="tips.html">Поради</a>
+      <a href="tools.html">Програми</a>
+      <a href="resources.html">Ресурси</a>
+      <a href="contact.html">Контакти</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Створи свій 3D світ</h1>
+    <p>Вивчай моделювання, анімацію та рендеринг. Від базових форм до професійних сцен.</p>
+    <a class="btn-outline" href="theory.html">Почати навчання</a>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="cards">
+
+  <div class="info-card">
+    <h3>📘 Теорія</h3>
+    <p>Розуміння основ: полігони, UV, світло і рендер.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>🎮 Практика</h3>
+    <p>Створюй моделі, сцени та персонажів своїми руками.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>🛠 Інструменти</h3>
+    <p>Blender, Maya, 3ds Max — вибери свою платформу.</p>
+  </div>
+
+</section>
+
+<!-- MINI INFO SECTION -->
+<section class="hero" style="padding: 60px 20px;">
+  <h2 style="color:#38bdf8;">Чому 3D?</h2>
+  <p>3D використовується в іграх, кіно, архітектурі та навіть медицині. Це одна з найшвидше зростаючих професій у світі.</p>
+</section>
+
+<!-- FORM -->
+    <div class="contact-card">
+
+      <h3>✍️ Написати повідомлення</h3>
+
+      <form id="contactForm">
+
+        <div class="input-group">
+          <input type="text" required>
+          <label>Ваше ім'я</label>
+        </div>
+
+        <div class="input-group">
+          <input type="email" required>
+          <label>Email</label>
+        </div>
+
+        <div class="input-group">
+          <textarea required></textarea>
+          <label>Повідомлення</label>
+        </div>
+
+        <button type="submit" class="btn-send">
+          Надіслати 🚀
+        </button>
+
+      </form>
+
+      <p id="successMsg" class="success">✔ Повідомлення відправлено!</p>
+
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 3D Моделювання</p>
+</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  document.getElementById("successMsg").style.display = "block";
+  this.reset();
+});
+</script>
+
+</body>
+</html>
