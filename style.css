@@ -1115,3 +1115,21 @@ a:active {
     margin: 20px auto;
   }
 }
+@media (max-width: 768px) {
+
+  .header {
+    padding: 8px 0;
+  }
+
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+
+  .nav {
+    display: none; /* временно убираем меню */
+  }
+
+}
