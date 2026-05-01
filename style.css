@@ -1012,3 +1012,56 @@ a:active {
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
 }
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .container {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav a {
+    font-size: 12px;
+  }
+
+  /* HERO */
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero {
+    padding: 80px 15px;
+  }
+
+  /* CARDS */
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-card {
+    width: 90%;
+  }
+
+  /* FORMS */
+  input, textarea {
+    width: 90%;
+  }
+
+  /* GRID (галерея / инструменты) */
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+}
