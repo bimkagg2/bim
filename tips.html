@@ -13,7 +13,7 @@
 
 <style>
 
-/* ================= BASE ================= */
+/* RESET */
 *{
   margin:0;
   padding:0;
@@ -37,7 +37,7 @@ body::before{
   z-index:-1;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 .header{
   position:sticky;
@@ -70,6 +70,7 @@ body::before{
   color:#38bdf8;
 }
 
+/* NAV */
 .nav{
   display:flex;
   gap:20px;
@@ -130,7 +131,7 @@ body::before{
   color:white;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
   text-align:center;
@@ -151,7 +152,7 @@ body::before{
   margin-top:10px;
 }
 
-/* ================= PROGRESS ================= */
+/* PROGRESS */
 
 .progress-box{
   margin-top:25px;
@@ -176,7 +177,7 @@ body::before{
   transition:.4s;
 }
 
-/* ================= GRID ================= */
+/* GRID */
 
 .tips-grid{
   max-width:1100px;
@@ -238,7 +239,7 @@ body::before{
   max-height:200px;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
   text-align:center;
@@ -247,7 +248,7 @@ footer{
   border-top:1px solid rgba(255,255,255,.06);
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:768px){
 
@@ -279,7 +280,9 @@ footer{
 
   <div class="container">
 
-    <div class="logo"><span>3D</span> MODELLING</div>
+    <div class="logo">
+      <span>3D</span> MODELLING
+    </div>
 
     <nav class="nav">
       <a href="index.html">Головна</a>
@@ -291,6 +294,7 @@ footer{
       <a href="tips.html">Поради</a>
       <a href="tools.html">Програми</a>
       <a href="resources.html">Ресурси</a>
+      <a href="guides.html">Методика</a>
       <a href="contact.html">Контакти</a>
     </nav>
 
@@ -298,7 +302,7 @@ footer{
 
   </div>
 
-  <!-- MOBILE MENU (верхняя шторка как в теории) -->
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
 
     <a href="index.html">Головна</a>
@@ -310,6 +314,7 @@ footer{
     <a href="tips.html">Поради</a>
     <a href="tools.html">Програми</a>
     <a href="resources.html">Ресурси</a>
+    <a href="guides.html">Методика</a>
     <a href="contact.html">Контакти</a>
 
   </div>
@@ -363,8 +368,6 @@ footer{
     <div class="tip-content">Освітлення визначає 70% якості рендера.</div>
   </div>
 
-  <!-- NEW -->
-
   <div class="tip-card" onclick="openTip(this)">
     <span>06</span>
     <h3>Не поспішай</h3>
@@ -404,24 +407,42 @@ footer{
 <script>
 
 let opened = 0;
+const maxTips = 10;
 
 function openTip(card){
 
+  // если карточка еще не была открыта
   if(!card.classList.contains("active")){
-    opened++;
+
+    // ограничение до 10
+    if(opened < maxTips){
+      opened++;
+    }
+
   }
 
+  // закрываем остальные
   document.querySelectorAll(".tip-card").forEach(c=>{
-    if(c !== card) c.classList.remove("active");
+    if(c !== card){
+      c.classList.remove("active");
+    }
   });
 
+  // открываем текущую
   card.classList.toggle("active");
 
+  // защита от значения больше 10
+  if(opened > maxTips){
+    opened = maxTips;
+  }
+
+  // обновление текста
   document.getElementById("progressText").innerText =
   `Прогрес: ${opened} / 10`;
 
+  // обновление полоски
   document.getElementById("progressFill").style.width =
-  (opened * 10) + "%";
+  (opened / maxTips * 100) + "%";
 }
 
 /* MENU */
