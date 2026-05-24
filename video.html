@@ -13,7 +13,7 @@
 
 <style>
 
-/* ================= BASE ================= */
+/* RESET */
 *{
   margin:0;
   padding:0;
@@ -37,7 +37,7 @@ body::before{
   z-index:-1;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 .header{
   position:sticky;
@@ -70,6 +70,7 @@ body::before{
   color:#38bdf8;
 }
 
+/* NAV */
 .nav{
   display:flex;
   gap:20px;
@@ -130,7 +131,7 @@ body::before{
   color:white;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
   text-align:center;
@@ -151,7 +152,7 @@ body::before{
   margin-top:10px;
 }
 
-/* ================= VIDEO GRID ================= */
+/* VIDEO GRID */
 
 .gallery-grid{
   max-width:1200px;
@@ -203,7 +204,7 @@ body::before{
   font-size:14px;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
   text-align:center;
@@ -212,7 +213,7 @@ footer{
   border-top:1px solid rgba(255,255,255,.06);
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:900px){
   .gallery-grid{
@@ -246,7 +247,9 @@ footer{
 
   <div class="container">
 
-    <div class="logo"><span>3D</span> MODELLING</div>
+    <div class="logo">
+      <span>3D</span> MODELLING
+    </div>
 
     <nav class="nav">
       <a href="index.html">Головна</a>
@@ -258,6 +261,7 @@ footer{
       <a href="tips.html">Поради</a>
       <a href="tools.html">Програми</a>
       <a href="resources.html">Ресурси</a>
+      <a href="guides.html">Методика</a>
       <a href="contact.html">Контакти</a>
     </nav>
 
@@ -265,7 +269,7 @@ footer{
 
   </div>
 
-  <!-- MOBILE MENU (верхняя шторка как в теории) -->
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
 
     <a href="index.html">Головна</a>
@@ -277,6 +281,7 @@ footer{
     <a href="tips.html">Поради</a>
     <a href="tools.html">Програми</a>
     <a href="resources.html">Ресурси</a>
+    <a href="guides.html">Методика</a>
     <a href="contact.html">Контакти</a>
 
   </div>
