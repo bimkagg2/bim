@@ -14,7 +14,7 @@
 
 <style>
 
-/* ================= RESET ================= */
+/* RESET */
 *{
   margin:0;
   padding:0;
@@ -39,7 +39,7 @@ body::before{
   z-index:-1;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 .header{
   position:sticky;
@@ -123,7 +123,7 @@ body::before{
   text-decoration:none;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
   text-align:center;
@@ -166,7 +166,7 @@ body::before{
   transform:scale(1.05);
 }
 
-/* ================= CARDS ================= */
+/* CARDS */
 
 .cards{
   max-width:1200px;
@@ -200,7 +200,7 @@ body::before{
   color:#38bdf8;
 }
 
-/* ================= INFO ================= */
+/* INFO */
 
 .info{
   text-align:center;
@@ -219,7 +219,7 @@ body::before{
   line-height:1.7;
 }
 
-/* ================= CONTACT ================= */
+/* CONTACT */
 
 .contact{
   max-width:800px;
@@ -269,7 +269,7 @@ textarea{
   cursor:pointer;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
   text-align:center;
@@ -279,7 +279,7 @@ footer{
   margin-top:40px;
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -315,7 +315,9 @@ footer{
 
   <div class="container">
 
-    <div class="logo"><span>3D</span> MODELLING</div>
+    <div class="logo">
+      <span>3D</span> MODELLING
+    </div>
 
     <nav class="nav">
       <a href="index.html">Головна</a>
@@ -327,6 +329,7 @@ footer{
       <a href="tips.html">Поради</a>
       <a href="tools.html">Програми</a>
       <a href="resources.html">Ресурси</a>
+      <a href="guides.html">Методика</a>
       <a href="contact.html">Контакти</a>
     </nav>
 
@@ -334,7 +337,7 @@ footer{
 
   </div>
 
-  <!-- MOBILE MENU (верхняя шторка как в теории) -->
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
 
     <a href="index.html">Головна</a>
@@ -346,6 +349,7 @@ footer{
     <a href="tips.html">Поради</a>
     <a href="tools.html">Програми</a>
     <a href="resources.html">Ресурси</a>
+    <a href="guides.html">Методика</a>
     <a href="contact.html">Контакти</a>
 
   </div>
@@ -442,7 +446,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const successMsg = document.getElementById("successMsg");
 
   form.addEventListener("submit", function (e) {
-    e.preventDefault(); // 👈 это БЛОКИРУЕТ обновление страницы
+    e.preventDefault(); 
 
     const name = form.querySelector('input[type="text"]').value.trim();
     const email = form.querySelector('input[type="email"]').value.trim();
