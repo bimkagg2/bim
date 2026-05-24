@@ -90,3 +90,57 @@ function closeDrawer(){
   document.getElementById("drawer").classList.remove("active");
   document.getElementById("overlay").classList.remove("active");
 }
+<script>
+
+window.onload = function(){
+
+  const images = document.querySelectorAll(".tutorial-card img");
+
+  const titles = [
+    "Відкрий Blender",
+    "Обертання сцени",
+    "Масштабування",
+    "Матеріал",
+    "Рендер",
+    "Збереження"
+  ];
+
+  const desc = [
+    "Після запуску Blender ти побачиш стандартний куб у сцені.",
+    "Затисни середню кнопку миші для обертання.",
+    "Натисни S для масштабування об'єкта.",
+    "Вибери матеріал і колір.",
+    "Натисни F12 для рендера.",
+    "Збережи проект через File → Save As."
+  ];
+
+  images.forEach((img, i) => {
+    img.addEventListener("click", function(){
+      document.getElementById("modal").classList.add("active");
+      document.getElementById("modalImg").src = this.src;
+      document.getElementById("modalTitle").innerText = titles[i];
+      document.getElementById("modalDesc").innerText = desc[i];
+    });
+  });
+
+};
+
+function closeModal(){
+  document.getElementById("modal").classList.remove("active");
+}
+
+</script>
+<script>
+
+document.querySelectorAll(".tutorial-card img").forEach(img => {
+  img.addEventListener("click", function(){
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = this.src;
+  });
+});
+
+function closeLightbox(){
+  document.getElementById("lightbox").style.display = "none";
+}
+
+</script>
