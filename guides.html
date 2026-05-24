@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Методичні Розробки | 3D</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#050816;
+  color:white;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+  radial-gradient(circle at top left, rgba(56,189,248,.18), transparent 30%),
+  radial-gradient(circle at bottom right, rgba(168,85,247,.15), transparent 30%);
+  z-index:-1;
+}
+
+/* HEADER */
+.header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(5,8,22,.8);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 24px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#38bdf8;
+}
+
+/* NAV */
+.nav{
+  display:flex;
+  gap:20px;
+}
+
+.nav a{
+  color:#94a3b8;
+  text-decoration:none;
+  position:relative;
+  transition:.3s;
+}
+
+.nav a:hover{
+  color:white;
+}
+
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background:#38bdf8;
+  transition:.3s;
+}
+
+.nav a:hover::after{
+  width:100%;
+}
+
+/* BURGER */
+.burger{
+  display:none;
+  font-size:30px;
+  cursor:pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu{
+  position:absolute;
+  top:100%;
+  left:0;
+  width:100%;
+  background:#0b1120;
+  display:flex;
+  flex-direction:column;
+  max-height:0;
+  overflow:hidden;
+  transition:.4s;
+}
+
+.mobile-menu.active{
+  max-height:600px;
+}
+
+.mobile-menu a{
+  padding:16px 24px;
+  color:#cbd5e1;
+  text-decoration:none;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:100px 20px 70px;
+}
+
+.hero h1{
+  font-size:58px;
+  background:linear-gradient(90deg,#38bdf8,#818cf8,#a855f7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:18px;
+}
+
+.hero p{
+  color:#94a3b8;
+  max-width:700px;
+  margin:auto;
+  line-height:1.7;
+}
+
+/* TUTORIAL */
+.tutorial-section{
+  max-width:1200px;
+  margin:auto;
+  padding:0 24px 70px;
+}
+
+.tutorial-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.tutorial-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:22px;
+  overflow:hidden;
+  transition:.4s;
+}
+
+.tutorial-card:hover{
+  transform:translateY(-8px);
+  border-color:#38bdf8;
+  box-shadow:0 10px 35px rgba(56,189,248,.15);
+}
+
+.tutorial-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.tutorial-content{
+  padding:22px;
+}
+
+.tutorial-content span{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:6px 12px;
+  border-radius:999px;
+  background:rgba(56,189,248,.1);
+  border:1px solid rgba(56,189,248,.3);
+  color:#38bdf8;
+  font-size:13px;
+}
+
+.tutorial-content h3{
+  margin-bottom:10px;
+  color:white;
+}
+
+.tutorial-content p{
+  color:#94a3b8;
+  line-height:1.7;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#64748b;
+  border-top:1px solid rgba(255,255,255,.06);
+  margin-top:60px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .nav{
+    display:none;
+  }
+
+  .burger{
+    display:block;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+
+  <div class="container">
+
+    <div class="logo">
+      <span>3D</span> MODELLING
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Головна</a>
+      <a href="theory.html">Теорія</a>
+      <a href="types.html">Види</a>
+      <a href="process.html">Процес</a>
+      <a href="gallery.html">Галерея</a>
+      <a href="video.html">Відео</a>
+      <a href="tips.html">Поради</a>
+      <a href="tools.html">Програми</a>
+      <a href="resources.html">Ресурси</a>
+      <a href="guides.html">Методика</a>
+      <a href="contact.html">Контакти</a>
+    </nav>
+
+    <div class="burger" onclick="toggleMenu()">☰</div>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+
+    <a href="index.html">Головна</a>
+    <a href="theory.html">Теорія</a>
+    <a href="types.html">Види</a>
+    <a href="process.html">Процес</a>
+    <a href="gallery.html">Галерея</a>
+    <a href="video.html">Відео</a>
+    <a href="tips.html">Поради</a>
+    <a href="tools.html">Програми</a>
+    <a href="resources.html">Ресурси</a>
+    <a href="guides.html">Методика</a>
+    <a href="contact.html">Контакти</a>
+
+  </div>
+
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+  <h1>Методичні Розробки</h1>
+
+  <p>
+    Покрокове навчання для новачків у Blender.
+    Створи свою першу 3D модель легко та швидко.
+  </p>
+
+</section>
+
+<!-- TUTORIAL -->
+<section class="tutorial-section">
+
+  <div class="tutorial-grid">
+
+    <!-- STEP 1 -->
+    <div class="tutorial-card">
+
+      <img src='https://i.postimg.cc/QM2yD64S/1.png' border='0' alt='1'>
+
+      <div class="tutorial-content">
+
+        <span>Крок 1</span>
+
+        <h3>Відкрий Blender</h3>
+
+        <p>
+          Після запуску Blender ти побачиш стандартний куб у центрі сцени.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="tutorial-card">
+
+      <img src="https://i.postimg.cc/T3Skj76x/izobrazenie-2026-05-22-002603846.png" alt="3D">
+
+      <div class="tutorial-content">
+
+        <span>Крок 2</span>
+
+        <h3>Обертання сцени</h3>
+
+        <p>
+          Затисни середню кнопку миші та рухай мишкою для обертання камери.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="tutorial-card">
+
+      <img src="https://i.postimg.cc/fyw5W1xk/izobrazenie-2026-05-22-002637968.png" alt="3D render">
+
+      <div class="tutorial-content">
+
+        <span>Крок 3</span>
+
+        <h3>Масштабування</h3>
+
+        <p>
+          Натисни клавішу S та рухай мишкою, щоб змінити розмір куба.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="tutorial-card">
+
+      <img src='https://i.postimg.cc/yNcTm7j0/image.png' border='0' alt='image'>
+
+      <div class="tutorial-content">
+
+        <span>Крок 4</span>
+
+        <h3>Матеріал</h3>
+
+        <p>
+          Відкрий вкладку Material та обери колір для своєї моделі.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="tutorial-card">
+
+      <img src='https://i.postimg.cc/LXVBWvrd/image.png' border='0' alt='image'>
+
+      <div class="tutorial-content">
+
+        <span>Крок 5</span>
+
+        <h3>Рендер</h3>
+
+        <p>
+          Натисни F12 для створення фінального рендера сцени.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="tutorial-card">
+
+      <img src='https://i.postimg.cc/VvG9fvfp/image.png' border='0' alt='image'>
+
+      <div class="tutorial-content">
+
+        <span>Крок 6</span>
+
+        <h3>Збереження</h3>
+
+        <p>
+          Збережи свою сцену через File → Save As та обери папку.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 3D Моделювання
+</footer>
+
+<script>
+
+function toggleMenu(){
+  document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+</script>
+
+</body>
+</html>
